@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+      {% block header_topic_name %}My Blogs{% endblock header_topic_name %}
+
+      {% block header %}
+          <!-- <div class="w3-section w3-padding-16"> -->
+          <!--   <span class="w3-margin-right">Filter:</span> -->
+          <!--   <button class="w3-button w3-black">ALL</button> -->
+          <!--   <button class="w3-button w3-white"><i class="fa fa-diamond w3-margin-right"></i>Design</button> -->
+          <!--   <button class="w3-button w3-white w3-hide-small"><i class="fa fa-photo w3-margin-right"></i>Photos</button> -->
+          <!--   <button class="w3-button w3-white w3-hide-small"><i class="fa fa-map-pin w3-margin-right"></i>Art</button> -->
+          <!-- </div> -->
+      {% endblock header %}
+
+      {% block content %}
+        <!-- First Photo Grid-->
+        {% if page_obj %}
+          <div class="w3-row-padding">
+            {% for page in page_obj %}
+            <div class="w3-third w3-container w3-margin-bottom">
+              <div class="w3-container w3-white">
+                <p><b>{{ page.title }}</b></p>
+                <p>{{ page.context }}</p>
+              </div>
+              <!-- <div class="w3-third w3-container"> -->
+              <!--   <img src="/w3images/nature.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity"> -->
+              <!--   <div class="w3-container w3-white"> -->
+              <!--     <p><b>Lorem Ipsum</b></p> -->
+              <!--     <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p> -->
+              <!--   </div> -->
+              <!-- </div> -->
+            </div>
+            {% endfor %}
+          </div>
+
+          <!-- Pagination -->
+          <div class="w3-center w3-padding-32">
+            <div class="w3-bar">
+              {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.start_index }}" class="w3-bar-item w3-button w3-hover-black">«</a>
+                <a href="?page={{ page_obj.previous_page_number }}" class="w3-bar-item w3-button w3-hover-black"><</a>
+              {% endif %}
+
+              <a href="?page=1" class="w3-bar-item w3-black w3-button">1</a>
+              <a href="?page=1" class="w3-bar-item w3-button w3-hover-black">2</a>
+              <a href="?page=1" class="w3-bar-item w3-button w3-hover-black">3</a>
+
+              {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number() }}" class="w3-bar-item w3-button w3-hover-black">»</a>
+                <a href="?page={{ page_obj.end_index }}" class="w3-bar-item w3-button w3-hover-black">></a>
+              {% endif %}
+            </div>
+          </div>
+
+        {% else %}
+          <div class="w3-row-padding">
+            <h1>There seems to be no posts for now...</h1>
+          </div>
+        {% endif %}
+
+      {% endblock content %}
