@@ -4,6 +4,9 @@ from django.contrib.auth import get_user_model
 
 
 class Post(models.Model):
+    class Meta:
+        ordering = ['-date_posted']
+
     title = models.CharField(max_length=69)
     date_posted = models.DateTimeField(default=timezone.now)
     context = models.TextField()

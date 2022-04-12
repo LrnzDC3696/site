@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
-      {% block title %}My Blogs{% endblock title %}
+      {% block header_topic_name %}{{ post.title }}{% endblock header_topic_name %}
 
       {% block content %}
+      <div class="w3-container w3-padding-large" style="margin-bottom:32px">
+        <h5><b>Author: {{ post.author.username }}, {{ post.date_posted }}</b></h5>
+        <p>{{ post.context }}</p>
+        <hr>
+      </div>
       {% endblock content %}
