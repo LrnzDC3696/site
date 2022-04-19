@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Anya v69</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'main/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <script src="https://kit.fontawesome.com/38ce49f45c.js" crossorigin="anonymous"></script>
+    <style>body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}</style>
+  </head>
+  <body class="w3-light-grey w3-content" style="max-width:1600px">
+
+    {% include 'main/sidebar.html' %}
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left:300px">
+
+      <!-- Sidebar/menu -->
+      {% include 'main/header.html' %}
+
+      {% block content %}{% endblock content %}
+
+      <!-- Footer -->
+      {% include 'main/footer.html' %}
+
+      <!-- End page content -->
+    </div>
+
+    <script>
+      // Script to open and close sidebar
+      function w3_open() {
+              document.getElementById("mySidebar").style.display = "block";
+              document.getElementById("myOverlay").style.display = "block";
+            }
+
+      function w3_close() {
+              document.getElementById("mySidebar").style.display = "none";
+              document.getElementById("myOverlay").style.display = "none";
+            }
+    </script>
+
+  </body>
+</html>
