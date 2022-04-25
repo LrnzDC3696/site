@@ -10,20 +10,22 @@
         <h4><b>Anya v69</b></h4>
         <p>Software Developer / <br> Web Developer</p>
       </div>
+
       <div class="w3-bar-block">
-        <a href="#blogs" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal">
+        <a href="{% url 'main-index'%}#blogs" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal blogs">
           <i class="fa fa-blog fa-fw w3-margin-right"></i>BLOG
         </a>
-        <a href="#projects" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
+        <a href="{% url 'main-index'%}#projects" onclick="w3_close()" class="w3-bar-item w3-button w3-padding projects">
           <i class="fa-solid fa-folder w3-margin-right"></i>PROJECTS
         </a>
-        <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
+        <a href="{% url 'main-index'%}#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding about">
           <i class="fa fa-user fa-fw w3-margin-right"></i>ABOUT
         </a>
-        <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding">
+        <a href="{% url 'main-index'%}#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding contact">
           <i class="fa fa-envelope fa-fw w3-margin-right"></i>CONTACT
         </a>
       </div>
+
       <div class="w3-panel w3-large">
         <i class="fa fa-envelope w3-hover-opacity"></i>
         <i class="fab fa-discord w3-hover-opacity"></i>
