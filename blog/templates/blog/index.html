@@ -1,0 +1,59 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+      <div id="blogs">
+        <div>
+          <!-- <div class="w3-center"> -->
+          <!--   <h3><b>Blogs</b></h3> -->
+          <!-- </div> -->
+          {% if page_obj.paginator.count <= 0 %}
+            <div class="w3-center">
+              <h5>There seems to be no blog posts for now!<br>
+                Please Come back later!</h5>
+            </div>
+          {% else %}
+            <!-- Blog Grid -->
+            {% for page_obj_nt in blog_posts %}
+            <div class="w3-row-padding">
+              {% for blog_post in page_obj_nt %}
+              <div class="w3-third w3-container w3-margin-bottom">
+                <a href="{% url 'blog-view' blog_post.title %}">
+                  <!-- <img src="/w3images/mountains.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity"> -->
+                  <div class="w3-container w3-white">
+                    <h5><b>{{ blog_post.title }}</b></h5>
+                    <p>{{ blog_post.context|slice:":255" }}
+                    <br><small>{{ blog_post.date_posted|date:'Y/M/d - H:iA' }}</small>
+                    </p>
+                  </div>
+                </a>
+              </div>
+              {% endfor %}
+            </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+
+        <!-- Pagination -->
+        <div class="w3-center w3-padding-32">
+          <div class="w3-bar">
+            {% if page_obj.has_previous %}
+              <a class="w3-bar-item w3-button w3-hover-black" href="?blog_page=1">«</a>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+              {% if page_obj.number == num %}
+                <a class="w3-bar-item w3-black w3-button" href="?blog_page={{ num }}">{{ num }}</a>
+              {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                <a class="w3-bar-item w3-button w3-hover-black" href="?blog_page={{ num }}">{{ num }}</a>
+              {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+            <!-- <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a> -->
+            <a class="w3-bar-item w3-button w3-hover-black" href="?blog_page={{ page_obj.paginator.num_pages }}">»</a>
+            {% endif  %}
+          </div>
+        </div>
+      </div>
+{% endblock content %}

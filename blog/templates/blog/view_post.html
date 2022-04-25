@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+      <div class="w3-container w3-padding-large" style="margin-bottom:32px">
+        <h1><b>{{ blog_post.title }}</b></h1>
+        <h3>{{ blog_post.author }} - {{ blog_post.date_posted }}</h3>
+        <p>{{ blog_post.context }}</p>
+
+        <!-- Images of Me -->
+        <!-- <div class="w3-row-padding w3-padding-16 w3-center"> -->
+          <!-- <div class="m6"> -->
+          <!--   <img src="{% static 'main/me.png' %}" alt="Me" class="w3-round" -->
+          <!--   style="display: block; margin-left: auto; margin-right: auto; width: 35%;"> -->
+          <!-- </div> -->
+          <!-- <div class="w3-col m6"> -->
+          <!--   <img src="/w3images/me2.jpg" alt="Me" style="width:100%"> -->
+          <!-- </div> -->
+        <!-- </div> -->
+
+        <hr style="display:block; background-color: #dbdbdb; height: 1px;">
+
+        <ul class="w3-ul w3-hoverable">
+          {% for comment in comments %}
+          <li>
+            <span><b>{{ comment.author }}</b></span><br>
+            <span>{{ comment.context }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+{% endblock content %}
