@@ -1,12 +1,13 @@
-{% extends 'main/base.html' %}
+{% extends 'blog/base.html' %}
 {% load static %}
 
 {% block content %}
-      <div class="w3-container w3-padding-large" style="margin-bottom:32px">
-        <h1><b>{{ blog_post.title }}</b></h1>
-        <h3>{{ blog_post.author }} - {{ blog_post.date_posted }}</h3>
-        <p>{{ blog_post.context }}</p>
-
+      <!-- temp -->
+      <div class="w3-container">
+        <!-- <img src="/w3images/mountains.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity"> -->
+        <div class="w3-container w3-white">
+          <h4>{{ blog_post.author }} | <small>{{ blog_post.date_posted|date:'Y/M/d - H:iA' }}</small></h4>
+          <p>{{ blog_post.context }}</p>
         <!-- Images of Me -->
         <!-- <div class="w3-row-padding w3-padding-16 w3-center"> -->
           <!-- <div class="m6"> -->
@@ -17,16 +18,37 @@
           <!--   <img src="/w3images/me2.jpg" alt="Me" style="width:100%"> -->
           <!-- </div> -->
         <!-- </div> -->
+        </div>
+      </div>
 
+      <div class="w3-container w3-center">
         <hr style="display:block; background-color: #dbdbdb; height: 1px;">
+      </div>
 
-        <ul class="w3-ul w3-hoverable">
-          {% for comment in comments %}
-          <li>
-            <span><b>{{ comment.author }}</b></span><br>
-            <span>{{ comment.context }}</span>
+      <div class="w3-container" style="margin-bottom:32px">
+        <ul class="w3-ul w3-border w3-white w3-opacity">
+          <li class="w3-black w3-center w3-xlarge w3-padding-16">Comments</li>
+          {% for blog_post in footer_blog_posts %}
+          <li class="w3-padding-16">
+            <b><span class="w3-large">{{ blog_post.title|slice:15 }}</span></b><br>
+            <span>{{ blog_post.context|slice:20 }}</span>
           </li>
           {% endfor %}
+          <li class="w3-light-grey w3-center w3-padding-16">
+            {% if not request.user.is_authenticated %}
+            <button class="w3-button w3-teal w3-padding-large w3-hover-black">Comment</button>
+            {% else %}
+            <form action="" target="_blank">
+              <div class="w3-section">
+                <textarea class="w3-input w3-border" type="text" name="message" placeholder="Your Message" required></textarea>
+              </div>
+              <button type="submit" class="w3-button w3-black">
+                <i class="fa fa-paper-plane w3-margin-right"></i>Send Message
+              </button>
+            </form>
+            {% endif %}
+
+          </li>
         </ul>
       </div>
 {% endblock content %}
