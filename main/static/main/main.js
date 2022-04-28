@@ -19,3 +19,22 @@ window.addEventListener('scroll', ()=>{
         }
     })
 })
+
+function menu_toggle() {
+    const toggle_menu = document.querySelector('.ct-menu');
+    if(toggle_menu.classList.contains('ct-active')){
+        toggle_menu.classList.remove('ct-active')
+    } else {
+        toggle_menu.classList.add('ct-active')
+    }
+}
+
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}

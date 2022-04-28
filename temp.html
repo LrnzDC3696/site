@@ -1,0 +1,85 @@
+        <!-- wut -->
+        <div class="ct">
+          <div class="ct-action">
+            <div class="ct-profile" onclick="menu_toggle()">
+              <img src="{% static 'main/me.png' %}" style="width:65px;" class="w3-circle w3-right w3-margin">
+            </div>
+            <div class="ct-menu">
+              <h3>Someone Famouse<br><span>A gay person</span></h3>
+              <ul>
+                <li>
+                  <i class="fab fa-google fa-fw" style="margin-right:6.9px!important"></i>Signin with google
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- wut end -->
+        <!-- the code above works don't to stupid things with it -->
+
+          <div class="ct-action">
+            <div class="ct-profile" onclick="ct_toggle_menu();">
+              <!-- <div class="w3-right w3-button w3-margin w3-hover-opacity"> -->
+              <!--   {% if request.user.is_authenticated %} -->
+              <!--     <img src="{{ request.user.socialaccount_set.all.0.get_avatar_url }}" style="width:65px;" class="w3-circle w3-hide-large"> -->
+              <!--   {% else %} -->
+              <!--     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w3-circle w3-hide-large" style="width:65px;"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -1-><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c39.77 0 72 32.24 72 72S295.8 272 256 272c-39.76 0-72-32.24-72-72S216.2 128 256 128zM256 448c-52.93 0-100.9-21.53-135.7-56.29C136.5 349.9 176.5 320 224 320h64c47.54 0 87.54 29.88 103.7 71.71C356.9 426.5 308.9 448 256 448z"/> -->
+              <!--     </svg> -->
+              <!--   {% endif %} -->
+              <!-- </div> -->
+            </div>
+            <div class="ct-menu w3-right w3-margin">
+              <!-- w3-button w3-hover-opacity -->
+              {% if request.user.is_authenticated %}
+                <h3>someone<br><span>email</span></h3>
+                <ul>
+                  <li>like in sidebar smh</li>
+                </ul>
+              {% else %}
+                <h3>someone<br><span>email</span></h3>
+                <form action="{% provider_login_url 'google' %}" method="POST">
+                  {% csrf_token %}
+                                                              <!-- class="w3-bar-item w3-button w3-padding" -->
+                  <button title="Login via google" type="submit" class="w3-bar-item w3-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w3-circle w3-hide-large" style="width:65px;"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c39.77 0 72 32.24 72 72S295.8 272 256 272c-39.76 0-72-32.24-72-72S216.2 128 256 128zM256 448c-52.93 0-100.9-21.53-135.7-56.29C136.5 349.9 176.5 320 224 320h64c47.54 0 87.54 29.88 103.7 71.71C356.9 426.5 308.9 448 256 448z"/>
+                    </svg>
+                  </button>
+                </form>
+              {% endif %}
+            </div>
+          </div>
+          <script>
+            function ct_toggle_menu(){
+              const toggle_menu = document.querySelector(".ct-menu");
+              toggle_menu.classList.toggle('ct-active')
+            }
+          </script>
+          <!-- <form action="{% provider_login_url 'google' %}" method="POST"> -->
+          <!--   {% csrf_token %} -->
+          <!--   <button title="Login via google" type="submit" class="w3-right w3-button w3-margin w3-hover-opacity"> -->
+          <!--     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w3-circle w3-hide-large" style="width:65px;"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -1-><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c39.77 0 72 32.24 72 72S295.8 272 256 272c-39.76 0-72-32.24-72-72S216.2 128 256 128zM256 448c-52.93 0-100.9-21.53-135.7-56.29C136.5 349.9 176.5 320 224 320h64c47.54 0 87.54 29.88 103.7 71.71C356.9 426.5 308.9 448 256 448z"/> -->
+          <!--     </svg> -->
+          <!--   </button> -->
+          <!-- </form> -->
+          <!-- wut -->
+        </div>
+
+          <!-- wut -->
+          <!-- <div class="w3-user-options"> -->
+          <!--   {% if request.user.is_authenticated %} -->
+          <!--     <a href="{% url 'account_logout' %}"> -->
+          <!--       <div class="w3-right w3-button w3-margin w3-hover-opacity"> -->
+          <!--         <img src="{{ request.user.socialaccount_set.all.0.get_avatar_url }}" style="width:65px;" class="w3-circle w3-hide-large"> -->
+          <!--       </div> -->
+          <!--     </a> -->
+          <!--   {% else %} -->
+          <!--     <form action="{% provider_login_url 'google' %}" method="POST"> -->
+          <!--       {% csrf_token %} -->
+          <!--       <button title="Login via google" type="submit" class="w3-right w3-button w3-margin w3-hover-opacity"> -->
+          <!--         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w3-circle w3-hide-large" style="width:65px;"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -1-><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c39.77 0 72 32.24 72 72S295.8 272 256 272c-39.76 0-72-32.24-72-72S216.2 128 256 128zM256 448c-52.93 0-100.9-21.53-135.7-56.29C136.5 349.9 176.5 320 224 320h64c47.54 0 87.54 29.88 103.7 71.71C356.9 426.5 308.9 448 256 448z"/> -->
+          <!--         </svg> -->
+          <!--       </button> -->
+          <!--     </form> -->
+          <!--   {% endif %} -->
+          <!-- </div> -->
+

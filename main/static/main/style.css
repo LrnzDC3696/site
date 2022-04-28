@@ -1385,3 +1385,96 @@ a{
     border-color:#e7ffff!important
 }
 
+/* custom stuff */
+.ct *{
+    margin: 0;
+    padding: 0;
+}
+.ct-action{
+    top: 20px;
+    right: 20px;
+}
+.ct-action .ct-profile{
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    /* border: 3px solid black; */
+}
+.ct-action .ct-profile img{
+    position: relative;
+    top: 0;
+    left: 0;
+    /* width: 100%; */
+    /* height: 100%; */
+    /* object-fit: cover; */
+    /* border: 3px solid black; */
+}
+.ct-action .ct-menu{
+    position: absolute;
+    top: 120px;
+    right: 10px;
+    padding: 10px 20px;
+    background: #fff;
+    width: 250px;
+    box-sizing: 0 5px 25px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    transition: 0.5s;
+    visibility: hidden;
+    opacity: 0;
+}
+.ct-action .ct-menu.ct-active{
+    top: 100px;
+    visibility: visible;
+    opacity: 1;
+}
+.ct-action .ct-menu::before{
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: 30px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    transform: rotate(45deg);
+}
+.ct-action .ct-menu h3{
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    padding: 20px 0;
+    font-weight: 500;
+    font-size: 18px;
+    color: #555;
+    line-height: 1.2em;
+}
+.ct-action .ct-menu h3 span{
+    font-size: 14px;
+    color: #cecece;
+    font-weight: 400;
+}
+.ct-action .ct-menu ul li{
+    list-style: none;
+    padding: 10px 0;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+}
+.ct-action .ct-menu ul li img{
+    max-width: 20px;
+    margin-right: 10px;
+    opacity: 0.5;
+    transition: 0.5s;
+}
+.ct-action .ct-menu ul li:hover img{
+    opacity: 1;
+}
+/* .ct-action .ct-menu ul li a{ */
+/*     display: inline-block; */
+/*     text-decoration: none; */
+/*     color: #555; */
+/*     font-weight: 500; */
+/*     transition: 0.5s; */
+/* } */
+/* .ct-action .ct-menu ul li a{ */
+/*     color: #ff5d94; */
+/* } */
