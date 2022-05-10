@@ -18,7 +18,7 @@
             <div class="w3-row-padding">
               {% for blog_post in page_obj_nt %}
               <div class="w3-third w3-container w3-margin-bottom">
-                <a href="{% url 'blog-view' blog_post.title %}">
+                <a href="{% url 'blog-view-slugnt' blog_post.id %}">
                   <!-- <img src="/w3images/mountains.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity"> -->
                   <div class="w3-container w3-white">
                     <h5><b>{{ blog_post.title }}</b></h5>

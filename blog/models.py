@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+from django.utils.text import slugify
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -16,6 +18,13 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    @property
+    def slug(self):
+        return slugify(self.title)
+
+    def get_absolute_url(self):
+        return reverse('blog-view-slug', args=[self.id, self.slug])
+
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
@@ -25,3 +34,6 @@ class Comment(models.Model):
 
     class Meta:
         ordering = ['-date_posted']
+
+    def __str__(self):
+        return self.context

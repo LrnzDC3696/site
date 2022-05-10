@@ -20,6 +20,22 @@ window.addEventListener('scroll', ()=>{
     })
 })
 
+
+function copy_pasta() {
+    if (navigator.share) {
+        navigator.share({
+            title: document.title,
+            text: "Hello World",
+            url: window.location.href
+        })
+            .then(() => console.log('Successful share'))
+            .catch(error => console.log('Error sharing:', error));
+    } else {
+        navigator.clipboard.writeText(window.location.href);
+        // # NOTE: SHOW MESSAGE
+    }
+}
+
 function menu_toggle() {
     const toggle_menu = document.querySelector('.ct-menu');
     if(toggle_menu.classList.contains('ct-active')){
@@ -33,6 +49,7 @@ function w3_open() {
     document.getElementById("mySidebar").style.display = "block";
     document.getElementById("myOverlay").style.display = "block";
 }
+
 
 function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
