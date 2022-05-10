@@ -1,23 +1,17 @@
-from django.shortcuts import render, redirect
-# from django.views import View
+from django.shortcuts import render
+from django.core.paginator import Paginator
+from blog.models import Post
+from utils.util import to_matrix
 
-def about(request):
-    return render(request, 'main/about.html')
 
-# does not exists
-def blog(request):
-    return render(request, 'main/index.html')
+def index(request):
+    x, y = (3, 2)
 
-def contact(request):
-    return render(request, 'main/contact.html')
+    posts = Post.objects.all()
+    paginator = Paginator(posts, x*y)
+    page_num = request.GET.get('blog_page', 1)
+    page_obj = paginator.page(page_num)
+    blog_posts = to_matrix(page_obj, 3)
+    context = {'page_obj': page_obj, 'blog_posts': blog_posts}
 
-def index(_):
-    return redirect(about)
-
-# Create your views here.
-def projects(request):
-    return render(request, 'main/projects.html')
-
-# does not exists
-def resume(request):
-    return render(request, 'main/index.html')
+    return render(request, 'main/index.html', context)

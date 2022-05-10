@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<section id="about">
+  <div class="w3-container w3-padding-large" style="margin-bottom:32px">
+    <h3><b>You are about to delete your comment</b></h3>
+    <p>Are you sure you want to delete the comment <b>"{{ comment }}"</b>?</p>
+    <hr>
+
+    <button class="w3-button w3-left w3-black w3-padding-large w3-margin-top w3-margin-bottom">
+      <a href="{{ request.META.HTTP_REFERER }}">
+        <i class="fa-solid fa-circle-left w3-margin-right"></i>No, take me back
+      </a>
+    </button>
+
+    <form action="" method="POST">
+      {% csrf_token %}
+      <button class="w3-button w3-right w3-red w3-padding-large w3-margin-top w3-margin-bottom">
+        <i class="fa-solid fa-trash-can w3-margin-right"></i>Delete
+      </button>
+    </form>
+  </div>
+</section>
+{% endblock content %}
+

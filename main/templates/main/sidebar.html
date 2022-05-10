@@ -1,0 +1,49 @@
+{% load static %}
+
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+      <div class="w3-container">
+        <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
+          <i class="fa fa-remove"></i>
+        </a>
+        <img src="{% static 'main/me.png' %}" style="width:45%;" class="w3-round"><br><br>
+        <h4><b>Anya v69</b></h4>
+        <p>Software Developer / <br> Web Developer</p>
+      </div>
+
+      <div class="w3-bar-block">
+        <a href="{% url 'main-index' %}#blogs" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal blogs">
+          <i class="fa fa-blog fa-fw w3-margin-right"></i>BLOG
+        </a>
+        <a href="{% url 'main-index' %}#projects" onclick="w3_close()" class="w3-bar-item w3-button w3-padding projects">
+          <i class="fa-solid fa-folder w3-margin-right"></i>PROJECTS
+        </a>
+        <a href="{% url 'main-index' %}#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding about">
+          <i class="fa fa-user fa-fw w3-margin-right"></i>ABOUT
+        </a>
+        <a href="{% url 'main-index' %}#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding contact">
+          <i class="fa fa-envelope fa-fw w3-margin-right"></i>CONTACT
+        </a>
+      </div>
+
+      <div class="w3-panel w3-large">
+        <a href="mailto:zyphr.euch@gmail.com">
+          <i class="fa fa-envelope w3-hover-opacity"></i>
+        </a>
+        <a href="https://youtu.be/dQw4w9WgXcQ" target="_blank">
+          <i class="fab fa-discord w3-hover-opacity"></i>
+        </a>
+        <a href="https://github.com/m0nk3ybraindead" target="_blank">
+          <i class="fa fa-github w3-hover-opacity"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/lorenzo-i%C3%B1igo-dela-cruz-443387227" target="_blank">
+          <i class="fa fa-linkedin w3-hover-opacity"></i>
+        </a>
+        <a href="https://youtu.be/dQw4w9WgXcQ" target="_blank">
+          <i class="fab fa-youtube w3-hover-opacity"></i>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>

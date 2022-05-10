@@ -1,7 +1,3 @@
 # site
 
-My website
-
-## todo
-
-break down the html file
+The source code for my website
