@@ -1,6 +1,6 @@
 # TODO
 
-- [ ] fix urls
+- [x] fix urls
   - [x] be able to share commments and posts
 
 - [ ] fix template

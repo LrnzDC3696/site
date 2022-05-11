@@ -20,19 +20,21 @@ window.addEventListener('scroll', ()=>{
     })
 })
 
-
-function copy_pasta() {
+function copy_pasta_url(id=null) {
     if (navigator.share) {
+        the_real_url = window.location.href.split("#")[0]
+
+        if (id != null) {
+            the_real_url += "#" + id
+        };
+
         navigator.share({
-            title: document.title,
-            text: "Hello World",
-            url: window.location.href
+            url: the_real_url
         })
             .then(() => console.log('Successful share'))
             .catch(error => console.log('Error sharing:', error));
     } else {
         navigator.clipboard.writeText(window.location.href);
-        // # NOTE: SHOW MESSAGE
     }
 }
 

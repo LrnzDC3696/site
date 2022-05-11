@@ -42,6 +42,11 @@ def update_post_comment(request, id):
     context = {'title': 'Updating the comment I see', 'comment_value': comment_value}
     return render(request, 'blog/update_post_comment.html', context=context)
 
+def anchor_comment(request, id):
+    comment = get_object_or_404(Comment, id=id)
+    post = comment.post
+    return redirect(f"{post.get_absolute_url()}#{comment.id}")
+
 def view_post(request, id, slug=None):
     blog_post = get_object_or_404(Post, id=id)
     comments = blog_post.comments.all()
