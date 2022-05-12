@@ -42,11 +42,6 @@ def update_post_comment(request, id):
     context = {'title': 'Updating the comment I see', 'comment_value': comment_value}
     return render(request, 'blog/update_post_comment.html', context=context)
 
-def anchor_comment(request, id):
-    comment = get_object_or_404(Comment, id=id)
-    post = comment.post
-    return redirect(f"{post.get_absolute_url()}#{comment.id}")
-
 def view_post(request, id, slug=None):
     blog_post = get_object_or_404(Post, id=id)
     comments = blog_post.comments.all()
@@ -74,6 +69,6 @@ def index(request):
     page_num = request.GET.get('blog_page', 1)
     page_obj = paginator.page(page_num)
     blog_posts = to_matrix(page_obj, x)
-    context = {'page_obj': page_obj, 'blog_posts': blog_posts}
+    context = {'title': 'My Blogs', 'page_obj': page_obj, 'blog_posts': blog_posts}
 
     return render(request, 'blog/index.html', context)

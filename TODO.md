@@ -1,34 +1,55 @@
 # TODO
 
-- [x] fix urls
-  - [x] be able to share commments and posts
+my todo man
+
+## Before hiatus
 
 - [ ] fix template
   - [ ] break down html
-  - [ ] in view post the comment section breakline
+- [ ] restructure the code
 
-- [ ] setup
-  - [ ] security (in what context you dumbass)
+## After hiatus
+
+### fixes
+
+- [ ] fix template and css
+  - [ ] About me (about me should be up, text left, image right side)
+  - [ ] blogs could be in the right side (like in coreyms.com)
+  - [ ] in view post the comment section breakline
   - [ ] fix message flash
-  - [ ] a way to connect other account to current account
 
 - [ ] potential fix
-  - [ ] pagination in messages or expand message
-  - [ ] put update message in the same page (only one post and form at a time)
+  - [ ] message form
+    - [ ] put update message in the same page (only one post and form at a time)
+    - [ ] don't show form until click
+
+### new stuff
+
+- [ ] Brightness/theme
+
+- [ ] account stuff
+  - [ ] a way to connect other account to current account
 
 - [ ] notification
+  - [ ] in a page
   - [ ] button in header or as email?
   - [ ] notify x | when
     - [ ] user | someone commments in the post
 
-blog:
-  blog post ideas:
-    filter?
-    tag?
+- [ ] setup
+  - [ ] security (in what context you dumbass)
 
-  maybe?
-    image support?
+- [ ] blog
+  - [ ] filter?
+  - [ ] tags?
+  - [ ] comment section (maybe?)
+    - [ ] image support
+    - [ ] stackoverflow comment section like messaging
+    - [ ] pagination in messages or expand message
 
-notification in a fucking page please
-website feedback
-stackoverflow comment section like messaging
+- [ ] project section
+  - [ ] pagination hover color(change to grey)
+  - [ ] middle (on Android)
+
+- [ ] projects
+  - [ ] website feedback

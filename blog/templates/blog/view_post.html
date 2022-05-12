@@ -1,4 +1,4 @@
-{% extends 'blog/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% load socialaccount %}
 
@@ -37,7 +37,6 @@
                       </svg>
                     {% endif %}
                     <b><span class="w3-large">{{ comment.author.username }}
-                        <i class="fa-solid fa-share-from-square w3-right" onclick="copy_pasta_url({{comment.id}})" style="margin-right:10px!important"></i>
                       {% if request.user == comment.author %}
                         <a href="{% url 'blog-comment_delete' id=comment.id %}"><i class="fa-solid fa-eraser w3-right" style="margin-right:10px!important"></i></a>
                         <a href="{% url 'blog-comment_update' id=comment.id %}"><i class="fa-solid fa-pen-to-square w3-right" style="margin-right:10px!important"></i></a>
@@ -55,7 +54,7 @@
 
                 <form action="{% provider_login_url 'google' %}" method="POST">
                   {% csrf_token %}
-                  <button title="Login via google" type="submit" class="w3-button w3-teal w3-padding-large w3-hover-black">
+                  <button title="Login via google" type="submit" class="w3-button w3-black w3-padding-large w3-hover-black">
                     <i class="fab fa-google fa-fw" style="margin-right:6.9px!important"></i>Signin with google
                   </button>
                 </form>
