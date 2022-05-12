@@ -3,76 +3,75 @@
 {% load socialaccount %}
 
 {% block content %}
-      <!-- temp -->
-      <div class="w3-container">
-        <div class="w3-container w3-white">
-          <h4>{{ blog_post.author }} | <small>{{ blog_post.date_posted|date:'Y/M/d - H:iA' }}
-              <i class="fa-solid fa-share-from-square w3-right w3-large" onclick="copy_pasta_url()"></i>
-            </small>
-          </h4>
-          <p>{{ blog_post.context }}</p>
-        </div>
-      </div>
+<!-- temp -->
+<div class="w3-container">
+  <div class="w3-container w3-white">
+    <h4>{{ blog_post.author }} | <small>{{ blog_post.date_posted|date:'Y/M/d - H:iA' }}
+        <i class="fa-solid fa-share-from-square w3-right w3-large" onclick="copy_pasta_url()"></i>
+      </small>
+    </h4>
+    <p>{{ blog_post.context }}</p>
+  </div>
+</div>
 
-      <div class="w3-container w3-center">
-        <hr style="display:block; background-color: #dbdbdb; height: 1px;">
-      </div>
+<div class="w3-container w3-center">
+  <hr style="display:block; background-color: #dbdbdb; height: 1px;">
+</div>
 
-      <section id="comments">
-        <div class="w3-container" style="margin-bottom:32px">
-          <ul class="w3-ul w3-border w3-white w3-opacity">
-            <li class="w3-black w3-center w3-xlarge w3-padding-16">Comments</li>
-            {% if not comments %}
-              <li class="w3-padding-16">
-                <span class="w3-opacity">Be the first one to comment!</span>
-              </li>
-            {% else %}
-              {% for comment in comments %}
-                <li class="w3-padding-16">
-                  <section id="{{ comment.id }}">
-                    {% if comment.author.socialaccount_set.all.0.get_avatar_url %}
-                      <img src="{{ comment.author.socialaccount_set.all.0.get_avatar_url }}" style="width:50px;" class="w3-circle w3-left w3-margin-right">
-                    {% else %}
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w3-circle w3-left w3-margin-right" style="width:50px;"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c39.77 0 72 32.24 72 72S295.8 272 256 272c-39.76 0-72-32.24-72-72S216.2 128 256 128zM256 448c-52.93 0-100.9-21.53-135.7-56.29C136.5 349.9 176.5 320 224 320h64c47.54 0 87.54 29.88 103.7 71.71C356.9 426.5 308.9 448 256 448z"/>
-                      </svg>
-                    {% endif %}
-                    <b><span class="w3-large">{{ comment.author.username }}
-                      {% if request.user == comment.author %}
-                        <a href="{% url 'blog-comment_delete' id=comment.id %}"><i class="fa-solid fa-eraser w3-right" style="margin-right:10px!important"></i></a>
-                        <a href="{% url 'blog-comment_update' id=comment.id %}"><i class="fa-solid fa-pen-to-square w3-right" style="margin-right:10px!important"></i></a>
-                      {% endif %}
-                    </span></b>
-                    <br>
-                    <span>{{ comment.context }}</span>
-                  </section>
-                </li>
-              {% endfor %}
-            {% endif %}
+<section id="comments">
+  <div class="w3-container" style="margin-bottom:32px">
+    <ul class="w3-ul w3-border w3-white w3-opacity">
+      <li class="w3-black w3-center w3-xlarge w3-padding-16">Comments</li>
+      {% if not comments %}
+      <li class="w3-padding-16">
+        <span class="w3-opacity">Be the first one to comment!</span>
+      </li>
+      {% else %}
+      {% for comment in comments %}
+      <li class="w3-padding-16">
+        <section id="{{ comment.id }}">
+          {% if comment.author.socialaccount_set.all.0.get_avatar_url %}
+          <img src="{{ comment.author.socialaccount_set.all.0.get_avatar_url }}" style="width:50px;" class="w3-circle w3-left w3-margin-right">
+          {% else %}
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w3-circle w3-left w3-margin-right" style="width:50px;"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c39.77 0 72 32.24 72 72S295.8 272 256 272c-39.76 0-72-32.24-72-72S216.2 128 256 128zM256 448c-52.93 0-100.9-21.53-135.7-56.29C136.5 349.9 176.5 320 224 320h64c47.54 0 87.54 29.88 103.7 71.71C356.9 426.5 308.9 448 256 448z"/>
+          </svg>
+          {% endif %}
+          <b><span class="w3-large">{{ comment.author.username }}
+              {% if request.user == comment.author %}
+              <a href="{% url 'blog-comment_delete' id=comment.id %}"><i class="fa-solid fa-eraser w3-right" style="margin-right:10px!important"></i></a>
+              <a href="{% url 'blog-comment_update' id=comment.id %}"><i class="fa-solid fa-pen-to-square w3-right" style="margin-right:10px!important"></i></a>
+              {% endif %}</span></b>
+            <br>
+            <span>{{ comment.context }}</span>
+        </section>
+      </li>
+      {% endfor %}
+      {% endif %}
 
-            <li class="w3-light-grey w3-center w3-padding-16">
-              {% if not request.user.is_authenticated %}
+      <li class="w3-light-grey w3-center w3-padding-16">
+        {% if not request.user.is_authenticated %}
 
-                <form action="{% provider_login_url 'google' %}" method="POST">
-                  {% csrf_token %}
-                  <button title="Login via google" type="submit" class="w3-button w3-black w3-padding-large w3-hover-black">
-                    <i class="fab fa-google fa-fw" style="margin-right:6.9px!important"></i>Signin with google
-                  </button>
-                </form>
+        <form action="{% provider_login_url 'google' %}" method="POST">
+          {% csrf_token %}
+          <button title="Login via google" type="submit" class="w3-button w3-grey w3-padding-large w3-hover-black">
+            <i class="fab fa-google fa-fw" style="margin-right:6.9px!important"></i>Signin with google
+          </button>
+        </form>
 
-              {% else %}
-                <form action="" method="POST">
-                  {% csrf_token %}
-                  <div class="w3-section">
-                    <textarea class="w3-input w3-border" type="text" name="context" placeholder="Your Message" required></textarea>
-                  </div>
-                  <button type="submit" class="w3-button w3-black">
-                    <i class="fa fa-paper-plane w3-margin-right"></i>Send Message
-                  </button>
-                </form>
-              {% endif %}
+        {% else %}
+        <form action="" method="POST">
+          {% csrf_token %}
+          <div class="w3-section">
+            <textarea class="w3-input w3-border" type="text" name="context" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="w3-button w3-black">
+            <i class="fa fa-paper-plane w3-margin-right"></i>Send Message
+          </button>
+        </form>
+        {% endif %}
 
-            </li>
-          </ul>
-        </div>
-      </section>
+      </li>
+    </ul>
+  </div>
+</section>
 {% endblock content %}
