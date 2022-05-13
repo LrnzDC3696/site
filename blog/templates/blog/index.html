@@ -16,7 +16,7 @@
       {% for blog_post in page_obj_nt %}
       <div class="w3-third w3-container w3-margin-bottom">
         <a href="{% url 'blog-view-slugnt' blog_post.id %}">
-          <div class="w3-container w3-white">
+          <div class="w3-container w3-white w3-border">
             <h5><b>{{ blog_post.title }}</b></h5>
             <p>{{ blog_post.context|slice:":255" }}
             <br><small>{{ blog_post.date_posted|date:'Y/M/d - H:iA' }}</small>

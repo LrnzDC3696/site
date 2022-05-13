@@ -1095,7 +1095,8 @@ a{
 .w3-hover-none:hover{
     box-shadow:none!important
 }
-/* Colors */
+
+/* colors */
 .w3-amber,.w3-hover-amber:hover{
     color:#000!important;
     background-color:#ffc107!important
@@ -1216,6 +1217,8 @@ a{
     color:#000!important;
     background-color:#ddffff!important
 }
+
+/* text colors */
 .w3-text-amber,.w3-hover-text-amber:hover{
     color:#ffc107!important
 }
@@ -1294,6 +1297,8 @@ a{
 .w3-text-dark-grey,.w3-hover-text-dark-grey:hover,.w3-text-dark-gray,.w3-hover-text-dark-gray:hover{
     color:#3a3a3a!important
 }
+
+/* borders */
 .w3-border-amber,.w3-hover-border-amber:hover{
     border-color:#ffc107!important
 }
@@ -1468,8 +1473,8 @@ a{
 .ct-action .ct-menu ul li:hover img{
     opacity: 1;
 }
-.ct-bold{
-    font-weight: 900;
+.ct-bold:hover{
+    font-size: 169%;
 }
 /* .ct-action .ct-menu ul li a{ */
 /*     display: inline-block; */

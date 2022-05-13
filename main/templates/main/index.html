@@ -5,10 +5,8 @@
 <section id="about">
   <!-- Images of Me -->
   <div class="w3-row-padding w3-padding-16 w3-center">
-    <div class="w3-right">
       <img src="{% static 'images/me.png' %}" alt="Me" class="w3-round"
                                                        style="display: block; margin-left: auto; margin-right: auto; width: 35%;">
-    </div>
   </div>
 
   <div class="w3-container w3-padding-large w3-center" style="margin-bottom:32px">
@@ -59,7 +57,9 @@
 
       {% for num in page_obj.paginator.page_range %}
       {% if page_obj.number == num %}
-      <a class="w3-bar-item w3-black w3-button" href="?blog_page={{ num }}#blogs">{{ num }}</a>
+      <div class="w3-bar-item w3-black w3-button w3-hover-black" >
+        {{ num }}
+      </div>
       {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
       <a class="w3-bar-item w3-button w3-hover-grey" href="?blog_page={{ num }}#blogs">{{ num }}</a>
       {% endif %}
