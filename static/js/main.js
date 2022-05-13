@@ -13,9 +13,9 @@ window.addEventListener('scroll', ()=>{
     })
 
     nav_list.forEach( a => {
-        a.classList.remove('w3-text-black');
+        a.classList.remove('w3-light-grey');
         if(a.classList.contains(current)){
-            a.classList.add('w3-text-black')
+            a.classList.add('w3-light-grey')
         }
     })
 })

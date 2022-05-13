@@ -1468,6 +1468,9 @@ a{
 .ct-action .ct-menu ul li:hover img{
     opacity: 1;
 }
+.ct-bold{
+    font-weight: 900;
+}
 /* .ct-action .ct-menu ul li a{ */
 /*     display: inline-block; */
 /*     text-decoration: none; */
